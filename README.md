@@ -11,21 +11,6 @@ A Safe wallet plugin for interacting with Safe Protocol Kit and managing wallet 
 - Check network information
 - Interact with Safe Protocol Kit
 
-## Installation
-
-```bash
-pnpm add plugin-safe
-```
-
-## Usage
-
-```typescript
-import { getBalance } from 'plugin-safe';
-
-// The plugin provides actions that can be used with ElizaOS
-// Example: Using the GET_BALANCE action
-const balanceAction = getBalance;
-```
 
 ## Project Structure
 
@@ -66,10 +51,8 @@ pnpm test
 
 The plugin requires the following environment variables for Safe wallet integration:
 
-- `SAFE_PRIVATE_KEY`: Private key for the Safe wallet
+- `WALLET_PRIVATE_KEY`: Private key for the Safe wallet
 - `RPC_URL`: RPC URL for the blockchain network
-- `CHAIN_ID`: Chain ID of the network (e.g., "1" for Ethereum mainnet)
-- `SAFE_ADDRESS`: (Optional) Address of an existing Safe. If not provided, a new Safe will be created
 
 ## Testing
 

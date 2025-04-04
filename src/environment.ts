@@ -6,9 +6,9 @@ export const SafeEnvironmentSchema = z.object({
     RPC_URL: z.string().min(1, "RPC URL is required"),
 });
 
-export type SonicConfig = z.infer<typeof SafeEnvironmentSchema>;
+export type SafeConfig = z.infer<typeof SafeEnvironmentSchema>;
 
-export async function validateSonicConfig(runtime: IAgentRuntime): Promise<SonicConfig> {
+export async function validateSafeConfig(runtime: IAgentRuntime): Promise<SafeConfig> {
    try {
     const config = {
         WALLET_PRIVATE_KEY: runtime.getSetting("WALLET_PRIVATE_KEY") || process.env.WALLET_PRIVATE_KEY,

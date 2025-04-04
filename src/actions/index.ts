@@ -11,7 +11,7 @@ import { getClient } from "../providers";
 
 export const getBalance: Action = {
     name: "GET_BALANCE",
-    description: "Get the balance of a specific address on the Sonic blockchain",
+    description: "Get the balance of your Safe",
     similes: [
         "GET_BALANCE",
         "CHECK_BALANCE",
@@ -33,7 +33,7 @@ export const getBalance: Action = {
         try {
             const safeWallet = await getClient();
             if (!safeWallet) {
-                elizaLogger.error("Failed to initialize Sonic wallet");
+                elizaLogger.error("Failed to initialize the wallet");
                 return false;
             }
             return true;
@@ -61,11 +61,11 @@ export const getBalance: Action = {
         try {
             const safeWallet = await getClient();
             if (!safeWallet) {
-                elizaLogger.error("Failed to initialize Sonic wallet");
+                elizaLogger.error("Failed to initialize Safe wallet");
                 if (callback) {
                     callback({
-                        text: "Failed to initialize Sonic wallet",
-                        content: { error: "Failed to initialize Sonic wallet" },
+                        text: "Failed to initialize Safe wallet",
+                        content: { error: "Failed to initialize Safe wallet" },
                     });
                 }
                 return false;
@@ -102,13 +102,13 @@ export const getBalance: Action = {
             {
                 user: "{{user1}}",
                 content: {
-                    text: "Check my balance of SONIC",
+                    text: "Check my balance of Safe",
                 },
             },
             {
                 user: "{{agent}}",
                 content: {
-                    text: "I'll help you check your balance of SONIC",
+                    text: "I'll help you check your balance of Safe",
                     action: "GET_BALANCE",
                 },
             },
@@ -123,7 +123,7 @@ export const getBalance: Action = {
             {
                 user: "{{agent}}",
                 content: {
-                    text: "I'll help you check SONIC balance...",
+                    text: "I'll help you check Safe balance...",
                     action: "GET_BALANCE",
                 },
             },
@@ -132,13 +132,13 @@ export const getBalance: Action = {
             {
                 user: "{{user1}}",
                 content: {
-                    text: "Check my wallet balance on SONIC",
+                    text: "Check my wallet balance on Safe",
                 },
             },
             {
                 user: "{{agent}}",
                 content: {
-                    text: "I'll help you check your wallet balance on SONIC",
+                    text: "I'll help you check your wallet balance on Safe",
                     action: "GET_BALANCE",
                 },
             }

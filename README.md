@@ -1,5 +1,7 @@
 # Plugin Safe
 
+ !!! WIP
+
 A Safe wallet plugin for interacting with Safe Protocol Kit and managing wallet operations.
 
 ## Features

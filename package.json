@@ -1,0 +1,63 @@
+{
+  "name": "@elizaos/plugin-safe",
+  "version": "1.0.0",
+  "agentConfig": {
+    "pluginType": "elizaos:plugin:1.0.0",
+    "pluginParameters": {
+      "WALLET_PRIVATE_KEY": {
+        "type": "string",
+        "description": "The private key of your agent wallet"
+      },
+      "RPC_URL": {
+        "type": "string",
+        "description": "The RPC URL of the network"
+      }
+    }
+  },
+  "description": "A safe plugin for managing secure operations",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "plugin",
+    "safe",
+    "security"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitest/coverage-v8": "^3.1.1",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.5",
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.1.1"
+  },
+  "dependencies": {
+    "@elizaos/core": "^0.25.9",
+    "@safe-global/sdk-starter-kit": "^2.0.1",
+    "viem": "^2.25.0",
+    "zod": "^3.24.2"
+  }
+}

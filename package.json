@@ -1,5 +1,5 @@
 {
-  "name": "@elizaos/plugin-safe",
+  "name": "@elizaos-plugins/plugin-safe",
   "version": "1.0.0",
   "agentConfig": {
     "pluginType": "elizaos:plugin:1.0.0",

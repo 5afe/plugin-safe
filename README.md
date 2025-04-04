@@ -1,6 +1,13 @@
 # Plugin Safe
 
-A secure plugin system for managing safe operations.
+A Safe wallet plugin for interacting with Safe Protocol Kit and managing wallet operations.
+
+## Features
+
+- Get wallet balance
+- View wallet address
+- Check network information
+- Interact with Safe Protocol Kit
 
 ## Installation
 
@@ -11,29 +18,24 @@ pnpm add plugin-safe
 ## Usage
 
 ```typescript
-import { getSettings } from 'plugin-safe';
+import { getBalance } from 'plugin-safe';
 
-// Initialize the plugin with environment settings
-const settings = getSettings();
+// The plugin provides actions that can be used with ElizaOS
+// Example: Using the GET_BALANCE action
+const balanceAction = getBalance;
 ```
 
 ## Project Structure
 
 ```
 plugin-safe/
-├── images/
-│   ├── logo.jpg        # Plugin branding logo
-│   ├── banner.jpg      # Plugin banner image
 ├── src/
 │   ├── index.ts        # Main plugin entry point
-│   ├── actions/        # Plugin-specific actions
-│   ├── clients/        # Client implementations
-│   ├── adapters/       # Adapter implementations
-│   ├── types.ts        # Type definitions
-│   └── environment.ts  # Runtime settings and validation
-├── package.json        # Plugin dependencies
-├── vite.config.ts     # Vite configuration
-└── README.md          # Plugin documentation
+│   ├── actions/        # Plugin actions (GET_BALANCE, etc.)
+│   ├── providers/      # Safe wallet provider implementations
+│   └── types.ts        # Type definitions
+├── package.json
+└── README.md
 ```
 
 ## Development
@@ -43,7 +45,7 @@ plugin-safe/
 pnpm install
 ```
 
-2. Start development mode (with watch):
+2. Start development mode:
 ```bash
 pnpm dev
 ```
@@ -55,35 +57,34 @@ pnpm build
 
 4. Run tests:
 ```bash
-# Run tests once
 pnpm test
+```
 
-# Run tests in watch mode
-pnpm test:watch
+## Environment Variables
+
+The plugin requires the following environment variables for Safe wallet integration:
+
+- `SAFE_PRIVATE_KEY`: Private key for the Safe wallet
+- `RPC_URL`: RPC URL for the blockchain network
+- `CHAIN_ID`: Chain ID of the network (e.g., "1" for Ethereum mainnet)
+- `SAFE_ADDRESS`: (Optional) Address of an existing Safe. If not provided, a new Safe will be created
+
+## Testing
+
+```bash
+# Run tests
+pnpm test
 
 # Run tests with coverage
 pnpm test:coverage
 ```
 
-5. Type checking:
-```bash
-pnpm typecheck
-```
+## Build with
 
-## Environment Variables
-
-The plugin requires the following environment variables:
-
-- `API_KEY`: Your API key for authentication
-- `API_URL`: The base URL for API requests
-
-## Build Information
-
-This project uses:
-- Vite for building and bundling
+- [Safe Protocol Kit](https://github.com/safe-global/safe-core-sdk)
+- Vite
+- TypeScript
 - Vitest for testing
-- TypeScript for type safety
-- ESM and CommonJS module formats supported
 
 ## License
 
